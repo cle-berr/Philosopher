@@ -6,7 +6,7 @@
 /*   By: cle-berr <cle-berr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 17:12:01 by cle-berr          #+#    #+#             */
-/*   Updated: 2025/03/12 10:25:51 by cle-berr         ###   ########.fr       */
+/*   Updated: 2025/03/12 11:58:21 by cle-berr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@ int	take_fork(t_data *data, t_philo *philo)
 	if (check_death(philo, data))
 		return (0);
 	pthread_mutex_lock(philo->left_fork);
+	if (check_death(philo, data))
+		return (pthread_mutex_unlock(philo->left_fork), 0);
 	print_action(data, philo->id, "has taken a fork", YELLOW);
 	if (check_death(philo, data))
 		return (pthread_mutex_unlock(philo->left_fork), 0);
 	pthread_mutex_lock(philo->right_fork);
+	if (check_death(philo, data))
+		return (pthread_mutex_unlock(philo->left_fork),
+			pthread_mutex_unlock(philo->right_fork), 0);
 	print_action(data, philo->id, "has taken a fork", YELLOW);
 	if (check_death(philo, data))
 		return (pthread_mutex_unlock(philo->left_fork),

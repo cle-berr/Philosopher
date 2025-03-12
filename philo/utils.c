@@ -6,7 +6,7 @@
 /*   By: cle-berr <cle-berr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:53:42 by cle-berr          #+#    #+#             */
-/*   Updated: 2025/03/12 10:24:09 by cle-berr         ###   ########.fr       */
+/*   Updated: 2025/03/12 11:56:15 by cle-berr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ int	sleep_ms(long ms, t_data *data, t_philo *philo)
 void	print_action(t_data *data, int id, char *msg, char *color)
 {
 	pthread_mutex_lock(&data->print_lock);
-	if (!data->dead)
-		printf("%s%lld %d %s%s\n" RESET, color, get_time() - data->start_time,
+	printf("%s%lld %d %s%s\n" RESET, color, get_time() - data->start_time,
 			id, msg, RESET);
 	pthread_mutex_unlock(&data->print_lock);
 }

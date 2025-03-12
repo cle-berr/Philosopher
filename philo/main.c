@@ -6,7 +6,7 @@
 /*   By: cle-berr <cle-berr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 12:47:46 by cle-berr          #+#    #+#             */
-/*   Updated: 2025/03/12 10:19:39 by cle-berr         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:07:36 by cle-berr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	init_simu(t_data *data, int argc, char **argv)
 	int	i;
 
 	i = -1;
+	
 	if (argc == 6)
 		if (ft_atol(argv[5]) > INT_MAX || ft_atol(argv[5]) < 0)
 			return (printf(RED "must_eat must be between 0 \
@@ -105,7 +106,7 @@ time_to_eat time_to_sleep [num_eat]\n"), 1);
 				- data.start_time), usleep(data.time_to_die * 1000),
 			printf(RED "%lld 1 died\n" RESET, get_time()
 				- data.start_time),
-			free(data.forks), 0);
+			free(data.forks), free(data.philos), 0);
 	start_simu(&data);
 	cleanup(&data);
 	return (0);
