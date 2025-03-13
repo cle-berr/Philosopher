@@ -6,7 +6,7 @@
 /*   By: cle-berr <cle-berr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 12:55:17 by cle-berr          #+#    #+#             */
-/*   Updated: 2025/03/11 17:51:33 by cle-berr         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:16:29 by cle-berr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void		start_simu(t_data *data);
 void		cleanup(t_data *data);
 int			check_death(t_philo *philo, t_data *data);
 long		ft_atol(const char *nptr);
+int			ft_strdigit(char **s);
 
 #endif

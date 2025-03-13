@@ -6,7 +6,7 @@
 /*   By: cle-berr <cle-berr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 12:47:46 by cle-berr          #+#    #+#             */
-/*   Updated: 2025/03/12 12:07:36 by cle-berr         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:27:08 by cle-berr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ int	init_simu(t_data *data, int argc, char **argv)
 	int	i;
 
 	i = -1;
-	
+	if (!ft_strdigit(argv))
+		return (0);
 	if (argc == 6)
-		if (ft_atol(argv[5]) > INT_MAX || ft_atol(argv[5]) < 0)
+		if ((ft_atol(argv[5]) > INT_MAX || ft_atol(argv[5]) < 0))
 			return (printf(RED "must_eat must be between 0 \
 and INT_MAX\n" RESET), 0);
 	if (!init_data(data, argv, argc))
